@@ -1,0 +1,74 @@
+body {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+/* Add a black background color to the top navigation */
+
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+
+.topnav a.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.flex-container {
+  display: flex;
+  max-width: 70%;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.anlegen {
+  box-shadow: inset 0px 1px 0px 0px #d9fbbe;
+  background-color: #4caf50;
+  /* Green */
+  border-radius: 6px;
+  border: 1px solid #83c41a;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 18px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px rgb(104, 134, 54);
+}
+
+.anlegen:hover {
+  background-color: #409445;
+}
+
+.anlegen:active {
+  position: relative;
+  top: 1px;
+}
+
+.willkommen {
+  text-align: center;
+  margin: 13%;
+  font-size: 8rem;
+}
