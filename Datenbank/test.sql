@@ -61,12 +61,12 @@ FOREIGN KEY (regalID) REFERENCES Buecherregal (regalID)
 
 -- Beispiel Kunde, Passwort: test
 INSERT INTO `kunde`(`BenutzerID`, `Passwort`, `Vorname`, `Nachname`, `Strasse`, `HausNr`, `PLZ`, `email`) 
-VALUES (1, '$2y$10$0BVQRQYnJ.IjCKvm5VhkoeZCtw8f0Ct8wesSbUbGS9FL6y1.TnX8.', 'Max', 'Mustermann',
+VALUES (1, '$2y$10$qCgb4MKzbMKAqUU2LOFBQ.wGoAD6yBElFA7V7EPwK.QGCViJjx4mu', 'Max', 'Mustermann',
 'Musterstr.', 1,'12345', 'mm@muster.de');
 
 -- Beispiel Admin, Passwort: test
 INSERT INTO Administrator(passwort)
-VALUES ('$2y$10$0BVQRQYnJ.IjCKvm5VhkoeZCtw8f0Ct8wesSbUbGS9FL6y1.TnX8.');
+VALUES ('$2y$10$qCgb4MKzbMKAqUU2LOFBQ.wGoAD6yBElFA7V7EPwK.QGCViJjx4mu');
 
 -- Beispiel Bücher
 INSERT INTO Buch (isbn10, isbn13, titel, autor, verzeichnisPfad, bearbeitungsID)
