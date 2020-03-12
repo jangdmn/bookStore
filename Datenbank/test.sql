@@ -13,7 +13,7 @@ nachname VARCHAR(50),
 strasse VARCHAR(50),
 hausNr INT,
 PLZ CHAR(5),
-email VARCHAR(50) UNIQUE
+email VARCHAR(255) UNIQUE NOT NULL
 );
 
 -- Tabelle Administrator
@@ -65,8 +65,8 @@ VALUES (1, '$2y$10$qCgb4MKzbMKAqUU2LOFBQ.wGoAD6yBElFA7V7EPwK.QGCViJjx4mu', 'Max'
 'Musterstr.', 1,'12345', 'mm@muster.de');
 
 -- Beispiel Admin, Passwort: test
-INSERT INTO Administrator(passwort)
-VALUES ('$2y$10$qCgb4MKzbMKAqUU2LOFBQ.wGoAD6yBElFA7V7EPwK.QGCViJjx4mu');
+INSERT INTO Administrator(adminID, passwort)
+VALUES (1, '$2y$10$qCgb4MKzbMKAqUU2LOFBQ.wGoAD6yBElFA7V7EPwK.QGCViJjx4mu');
 
 -- Beispiel Bücher
 INSERT INTO Buch (isbn10, isbn13, titel, autor, verzeichnisPfad, bearbeitungsID)
