@@ -14,7 +14,7 @@ if (isset($_GET['login'])) {
     //Überprüfung des Passworts
     if ($user !== false && password_verify($passwort, $user['passwort'])) {
         $_SESSION['userid'] = $user['adminID'];
-        die(header("refresh:0;url=../store/bookstore.php"));
+        die(header("refresh:0;url=../home/adminHome.php"));
     } else {
         $errorMessage = "E-Mail oder Passwort war ungültig<br>";
     }

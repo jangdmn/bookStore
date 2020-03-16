@@ -1,40 +1,44 @@
 body {
-    font-family: 'Titillium Web', sans-serif;
-  }
-  
-  /* Add a black background color to the top navigation */
-  
-  .topnav {
-    background-color: #333;
-    overflow: hidden;
-  }
-  
-  /* Style the links inside the navigation bar */
-  
-  .topnav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  /* Change the color of links on hover */
-  
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  /* Add a color to the active/current link */
-  
-  .topnav a.active {
-    background-color: #4caf50;
-    color: white;
-  }
+  font-family: 'Titillium Web', sans-serif;
+  background: url('pics/wooden_floor.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
 
-  @import "compass/css3";
+/* Add a black background color to the top navigation */
+
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+
+.topnav a.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+@import 'compass/css3';
 .books {
   padding: 30px 0;
   text-align: center;
@@ -49,7 +53,8 @@ img {
   margin: 8rem 3rem;
   transform: perspective(500px) rotateY(-22deg) translateZ(20px);
   transition: all 0.2s ease;
-  box-shadow: 2px 0 -1px #ddd, 4px 0 -2px white, 6px 0 -3px #ddd, 8px 0 -4px white, 10px 0 -5px #ddd, 12px 0 -6px white;
+  box-shadow: 2px 0 -1px #ddd, 4px 0 -2px white, 6px 0 -3px #ddd,
+    8px 0 -4px white, 10px 0 -5px #ddd, 12px 0 -6px white;
 }
 
 img:hover {
@@ -61,25 +66,6 @@ img:hover {
   height: 12rem;
   margin: -50px auto 0;
   transform: perspective(10px) rotateX(20deg);
-  background:( linear-gradient(rgba(black, 0.2), rgba(black, 0)), url(http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/retina_wood_@2X.png));
+  background: ( linear-gradient(rgba(black, 0.2), rgba(black, 0)), url(http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/retina_wood_@2X.png));
   background-size: 100%, 512px;
 }
-
-body {
-  background: url("pics/paper.jpg");
-  background-size: 100%;
-  overflow: hidden;
-}
-
-.userID {
-  display: flex;
-  justify-content: center;
-}
-.user {
-  display: inline-flex;
-  border: 5px solid black;
-  padding: 0 0.67em 0 0.67em;
-  margin-top: 2rem;
-}
-
-  

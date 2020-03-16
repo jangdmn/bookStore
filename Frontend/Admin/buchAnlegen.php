@@ -11,10 +11,10 @@
 
 <body>
 <div class="topnav">
-    <a href="#home"><i class="fa fa-fw fa-home"></i>&nbsp Home</a>
-    <a href="../Kunde/customerBookshelf.html"><i class="fa fa-fw fa-coffee"></i>&nbsp Bücherregal</a>
-    <a class="active" href="bookStore.php"><i class="fa fa-fw fa-book""></i>&nbsp Book Store</a>
-    <a href="../logout/logout.php"><i class="fa fa-sign-out" style="font-size:1.4rem; color:white"></i></a>
+    <a href="../home/adminHome.php"><i class="fa fa-fw fa-home"></i>&nbsp Home</a>
+    <a href="../store/adminBookStore.php"><i class="fa fa-fw fa-book""></i>&nbsp Book Store</a>
+    <a class="active" href="buchAnlegen.php"><i class="fa fa-fw fa-arrow-circle-up"></i>&nbsp Buch Anlegen</a>
+    <a href="../logout/logout.php"><i class="fa fa-sign-out" style="font-size:1.4rem"></i></a>
   </div>
   <form method="post" enctype="multipart/form-data">
     <div class="flex-container">
