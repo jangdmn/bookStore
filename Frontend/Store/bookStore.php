@@ -20,7 +20,7 @@
   <?php
   session_start();
   if (!isset($_SESSION['userid'])) {
-    die('Bitte zuerst <a href="../login/adminlogin.php">einloggen</a>');
+    die('Bitte zuerst <a href="../login/login.html">einloggen</a>');
   }
 
   //Abfrage der Admin-ID vom Login
