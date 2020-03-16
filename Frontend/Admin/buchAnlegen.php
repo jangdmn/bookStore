@@ -4,15 +4,17 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="buchAnlegen.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet" />
 </head>
 <title>Admin</title>
 
 <body>
-  <div class="topnav">
-    <a href="#home">Home</a>
-    <a href="../Store/bookStore.php">Book Store</a>
-    <a class="active" href="buchAnlegen.php">Bücher anlegen</a>
+<div class="topnav">
+    <a href="#home"><i class="fa fa-fw fa-home"></i>&nbsp Home</a>
+    <a href="../Kunde/customerBookshelf.html"><i class="fa fa-fw fa-coffee"></i>&nbsp Bücherregal</a>
+    <a class="active" href="bookStore.php"><i class="fa fa-fw fa-book""></i>&nbsp Book Store</a>
+    <a href="../logout/logout.php"><i class="fa fa-sign-out" style="font-size:1.4rem; color:white"></i></a>
   </div>
   <form method="post" enctype="multipart/form-data">
     <div class="flex-container">
