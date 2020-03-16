@@ -11,6 +11,11 @@
 <title>Home</title>
 
 <body>
+    <?php
+    session_start();
+    if (!isset($_SESSION['userid'])) {
+        die('<div class="rahmen"><h3>Bitte zuerst <a href="../login/login.html">einloggen</a></h3></div>');
+    } ?>
     <div class="topnav">
         <a class="active" href="adminHome.php"><i class="fa fa-fw fa-home"></i>&nbsp Home</a>
         <a href="../store/adminBookStore.php"><i class="fa fa-fw fa-book""></i>&nbsp Book Store</a>
@@ -20,10 +25,6 @@
     <div class="rahmen">
         <div class="userID">
             <?php
-            session_start();
-            if (!isset($_SESSION['userid'])) {
-                die('Bitte zuerst <a href="../login/login.html">einloggen</a>');
-            }
             //Abfrage der Admin-ID vom Login
             $userid = $_SESSION['userid'];
 

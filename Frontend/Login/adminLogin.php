@@ -44,7 +44,7 @@ if (isset($_GET['login'])) {
         <form action="?login=1" method="post">
           <h3>Administrator-ID:</h3>
           <input
-            type="number"
+            type="text"
             size="40"
             maxlength="250"
             name="adminID"

@@ -69,3 +69,11 @@ img:hover {
   background: ( linear-gradient(rgba(black, 0.2), rgba(black, 0)), url(http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/retina_wood_@2X.png));
   background-size: 100%, 512px;
 }
+
+.rahmen {
+  display: flex;
+  border: 0.2rem solid black;
+  background-color: #fff;
+  margin: 1rem 23rem 0 23rem;
+  justify-content: center;
+}

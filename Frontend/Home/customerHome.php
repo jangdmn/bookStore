@@ -11,20 +11,21 @@
 <title>Home</title>
 
 <body>
+    <!-- Prüft ob ein User eingeloggt ist -->
+    <?php
+    session_start();
+    if (!isset($_SESSION['userid'])) {
+        die('<div class="rahmen"><h3>Bitte zuerst <a href="../login/login.html">einloggen</a></h3></div>');
+    } ?>
     <div class="topnav">
         <a class="active" href="costumerHome.php"><i class="fa fa-fw fa-home"></i>&nbsp Home</a>
-        <a href="../Kunde/customerBookshelf.html"><i class="fa fa-fw fa-coffee"></i>&nbsp Bücherregal</a>
-        <a href="../store/bookStore.php"><i class="fa fa-fw fa-book""></i>&nbsp Book Store</a>
-        <a href="../logout/logout.php"><i class="fa fa-sign-out" style="font-size:1.4rem"></i></a>
+        <a href="../Kunde/customerBookshelf.php"><i class="fa fa-fw fa-coffee"></i>&nbsp Bücherregal</a>
+        <a href="../store/customerBookstore.php"><i class="fa fa-fw fa-book""></i>&nbsp Book Store</a>
+        <a href=" ../logout/logout.php"> <i class="fa fa-sign-out" style="font-size:1.4rem"></i></a>
     </div>
     <div class="rahmen">
         <div class="userID">
             <?php
-            session_start();
-            if (!isset($_SESSION['name'])) {
-                die('Bitte zuerst <a href="../login/login.html">einloggen</a>');
-            }
-
             // Abfrage des Benutzernames
             $name = $_SESSION['name'];
 

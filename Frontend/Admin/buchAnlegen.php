@@ -10,10 +10,15 @@
 <title>Admin</title>
 
 <body>
-<div class="topnav">
+  <?php
+  session_start();
+  if (!isset($_SESSION['userid'])) {
+    die('<div class="rahmen"><h3>Bitte zuerst <a href="../login/login.html">einloggen</a></h3></div>');
+  } ?>
+  <div class="topnav">
     <a href="../home/adminHome.php"><i class="fa fa-fw fa-home"></i>&nbsp Home</a>
     <a href="../store/adminBookStore.php"><i class="fa fa-fw fa-book""></i>&nbsp Book Store</a>
-    <a class="active" href="buchAnlegen.php"><i class="fa fa-fw fa-arrow-circle-up"></i>&nbsp Buch Anlegen</a>
+    <a class=" active" href="buchAnlegen.php"><i class="fa fa-fw fa-arrow-circle-up"></i>&nbsp Buch Anlegen</a>
     <a href="../logout/logout.php"><i class="fa fa-sign-out" style="font-size:1.4rem"></i></a>
   </div>
   <form method="post" enctype="multipart/form-data">
@@ -47,7 +52,6 @@
 
   <?php
   header("Content-type: text/html");
-  session_start();
   $pdo = new PDO('mysql:host=localhost;dbname=grogogroup', 'root', '');
 
   if (isset($_POST["upload"])) {
