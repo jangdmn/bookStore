@@ -5,6 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="buchAnlegen.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylsheet" href="../font-awesome/css/all.css">
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet" />
 </head>
 <title>Admin</title>
@@ -65,7 +66,8 @@
     $isbn13 = $_POST['isbn13'];
     $autorName = $_POST['autor'];
     $bookTitel = $_POST['titel'];
-    // Allow certain file formats
+
+    // Überprüfe auf PDF-Datei
     if (
       $imageFileType != "pdf"
     ) {
@@ -83,7 +85,8 @@
               <div>Ihre Datei wurde nicht hochgeladen.</div>
               <i class=\"fa fa-fw fa-exclamation-triangle\"></i>
             </div>";
-      // if everything is ok, try to upload file
+
+      // wenn alles in Ordnung ist, versuche die Datei hochzuladen
     } else {
       $sql = "INSERT INTO 'Buch' (isbn10, isbn13, titel, autor, verzeichnispfad)
       VALUES (?, ?, ?, ?, ?)";
@@ -93,11 +96,23 @@
       $data = array($isbn10, $isbn13, $bookTitel, $autorName, "upload/$titelDirectory");
       $stmt->execute($data);
 
-      // Ordner mit dem Namen des eingegebenen Buchtitels wird erstellt
-      mkdir("uploads/$titelDirectory");
+      // Prüft ob Datei schon vorhanden ist
+      if (file_exists("uploads/$titelDirectory")) {
+        echo "<div class=\"fileWarn\">
+              <i class=\"fa fa-fw fa-exclamation-triangle\"></i>
+              <div>Datei existiert bereits.</div>
+              <i class=\"fa fa-fw fa-exclamation-triangle\"></i>
+            </div>";
+      } else { // Ordner mit dem Namen des eingegebenen Buchtitels wird erstellt
+      mkdir("uploads/$titelDirectory");}
+
       // Seiten werden konvertiert und in den gerade erstellten Ordner gespeichert
       exec("gswin32c -dNOPAUSE -sDEVICE=jpeg -r144 -sOutputFile=uploads/$titelDirectory/%d.jpg $target_file");
-      echo "Datei erfolgreich hochgeladen und konvertiert.";
+      echo "<div class=\"fileSuccess\">
+              <i class=\"fa fa-fw fa-check-circle\"></i>
+              <div>Datei erfolgreich hochgeladen und konvertiert.</div>
+              <i class=\"fa fa-fw fa-check-circle\"></i>
+            </div>";
     }
   }
   // DB-Verbindung schließen
