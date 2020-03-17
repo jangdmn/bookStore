@@ -23,6 +23,8 @@ $pdo = new PDO('mysql:host=localhost;dbname=grogogroup', 'root', '');
 
     if (isset($_GET['register'])) {
         $error = false;
+        $vorname = $_POST['vorname'];
+        $nachname = $_POST['nachname'];
         $email = $_POST['email'];
         $passwort = $_POST['passwort'];
         $passwort2 = $_POST['passwort2'];
@@ -36,8 +38,8 @@ $pdo = new PDO('mysql:host=localhost;dbname=grogogroup', 'root', '');
             $error = true;
         }
         if ($passwort != $passwort2) {
-            echo 
-            '<div class="warning">
+            echo
+                '<div class="warning">
                 <div><i class="fa fa-fw fa-exclamation-triangle"></i></div>
                 <div><h3>Die Passwörter müssen übereinstimmen</h3></div>
                 <div><i class="fa fa-fw fa-exclamation-triangle"></i></div>
@@ -52,8 +54,8 @@ $pdo = new PDO('mysql:host=localhost;dbname=grogogroup', 'root', '');
             $user = $statement->fetch();
 
             if ($user !== false) {
-                echo 
-                '<div class="warning">
+                echo
+                    '<div class="warning">
                     <div><i class="fa fa-fw fa-exclamation-triangle"></i></div>
                     <div><h3>Diese E-Mail-Adresse ist bereits vergeben</h3></div>
                     <div><i class="fa fa-fw fa-exclamation-triangle"></i></div>
@@ -66,15 +68,15 @@ $pdo = new PDO('mysql:host=localhost;dbname=grogogroup', 'root', '');
         if (!$error) {
             $passwort_hash = password_hash($passwort, PASSWORD_DEFAULT);
 
-            $statement = $pdo->prepare("INSERT INTO kunde (email, passwort) VALUES (:email, :passwort)");
-            $result = $statement->execute(array('email' => $email, 'passwort' => $passwort_hash));
+            $statement = $pdo->prepare("INSERT INTO kunde (vorname, nachname, email, passwort) VALUES (:vorname, :nachname, :email, :passwort)");
+            $result = $statement->execute(array('vorname' => $vorname, 'nachname' => $nachname, 'email' => $email, 'passwort' => $passwort_hash));
 
             if ($result) {
                 header("refresh:0;url=success.php");
                 $showFormular = false;
             } else {
-                echo 
-                '<div class="warning">
+                echo
+                    '<div class="warning">
                     <div><i class="fa fa-fw fa-exclamation-triangle"></i></div>
                     <div><h3>Beim Abspeichern ist leider ein Fehler aufgetreten</h3></div>
                     <div><i class="fa fa-fw fa-exclamation-triangle"></i></div>
@@ -88,6 +90,12 @@ $pdo = new PDO('mysql:host=localhost;dbname=grogogroup', 'root', '');
         <div class="flex-container">
             <div class="registerWin">
                 <form action="?register=1" method="post">
+                    <div class="registerFont">Vorname:</div>
+                    <input type="text" size="40" maxlength="250" name="vorname"><br>
+
+                    <div class="registerFont">Nachname:</div>
+                    <input type="text" size="40" maxlength="250" name="nachname"><br><br>
+
                     <div class="registerFont">E-Mail:</div>
                     <input type="email" size="40" maxlength="250" name="email"><br><br>
 
