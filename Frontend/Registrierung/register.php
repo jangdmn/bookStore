@@ -68,7 +68,8 @@ $pdo = new PDO('mysql:host=localhost;dbname=grogogroup', 'root', '');
         if (!$error) {
             $passwort_hash = password_hash($passwort, PASSWORD_DEFAULT);
 
-            $statement = $pdo->prepare("INSERT INTO kunde (vorname, nachname, email, passwort) VALUES (:vorname, :nachname, :email, :passwort)");
+            $statement = $pdo->prepare("INSERT INTO kunde (vorname, nachname, email, passwort) 
+                                        VALUES (:vorname, :nachname, :email, :passwort)");
             $result = $statement->execute(array('vorname' => $vorname, 'nachname' => $nachname, 'email' => $email, 'passwort' => $passwort_hash));
 
             if ($result) {

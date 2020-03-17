@@ -60,12 +60,11 @@
     $target_file = $target_dir . $_FILES["fileToUpload"]["name"];
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-    $output = "C:/xampp/htdocs/Abschlussprojekt_v1.1/Frontend/Admin/affen.jpg";
     $titelDirectory = $_POST['titel'];
     $isbn10 = $_POST['isbn10'];
     $isbn13 = $_POST['isbn13'];
-    $autorName = $_POST['autor'];
-    $bookTitel = $_POST['titel'];
+    $autor = $_POST['autor'];
+    $titel = $_POST['titel'];
 
     // Überprüfe auf PDF-Datei
     if (
@@ -88,13 +87,13 @@
 
       // wenn alles in Ordnung ist, versuche die Datei hochzuladen
     } else {
-      $sql = "INSERT INTO 'Buch' (isbn10, isbn13, titel, autor, verzeichnispfad)
-      VALUES (?, ?, ?, ?, ?)";
+      $sql = "INSERT INTO buch (isbn10, isbn13, titel, autor)
+              VALUES (:isbn10, :isbn13, :titel, :autor)";
 
       // Schutz gegen SQL-Injections
-      $stmt = $pdo->prepare($sql);
-      $data = array($isbn10, $isbn13, $bookTitel, $autorName, "upload/$titelDirectory");
-      $stmt->execute($data);
+      $statement = $pdo->prepare($sql);
+      $result = $statement->execute(array('isbn10' => $isbn10, 'isbn13' => $isbn13, 'titel' => $titel, 
+      'autor' => $autor));
 
       // Prüft ob Datei schon vorhanden ist
       if (file_exists("uploads/$titelDirectory")) {
