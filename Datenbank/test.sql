@@ -69,8 +69,8 @@ INSERT INTO administrator(adminID, passwort)
 VALUES (1, '$2y$10$qCgb4MKzbMKAqUU2LOFBQ.wGoAD6yBElFA7V7EPwK.QGCViJjx4mu');
 
 -- Beispiel Bücher
-INSERT INTO buch (isbn10, isbn13, titel, autor, verzeichnisPfad, bearbeitungsID)
-VALUES ('1111111111', '1111111111111', 'firstTestTitel', 'firstAutorName', 'upload/firstTestTitel', 1);
+-- INSERT INTO buch (isbn10, isbn13, titel, autor, verzeichnisPfad, bearbeitungsID)
+-- VALUES ('1111111111', '1111111111111', 'firstTestTitel', 'firstAutorName', 'upload/firstTestTitel', 1);
 
-INSERT INTO buch (isbn10, isbn13, titel, autor, verzeichnisPfad, bearbeitungsID)
-VALUES ('2222222222', '2222222222222', 'secondTestTitel', 'secondAutorName', 'upload/secondTestTitel', 1);
+-- INSERT INTO buch (isbn10, isbn13, titel, autor, verzeichnisPfad, bearbeitungsID)
+-- VALUES ('2222222222', '2222222222222', 'secondTestTitel', 'secondAutorName', 'upload/secondTestTitel', 1);
