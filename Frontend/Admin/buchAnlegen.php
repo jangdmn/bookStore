@@ -69,12 +69,20 @@
     if (
       $imageFileType != "pdf"
     ) {
-      echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+      echo "<div class=\"fileWarn\">
+              <i class=\"fa fa-fw fa-exclamation-triangle\"></i>
+              <div>Sie können ausschließlich PDF-Dateien hochladen.</div>
+              <i class=\"fa fa-fw fa-exclamation-triangle\"></i>
+            </div>";
       $uploadOk = 0;
     }
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
-      echo "Sorry, your file was not uploaded.";
+      echo "<div class=\"fileWarn\">
+              <i class=\"fa fa-fw fa-exclamation-triangle\"></i>
+              <div>Ihre Datei wurde nicht hochgeladen.</div>
+              <i class=\"fa fa-fw fa-exclamation-triangle\"></i>
+            </div>";
       // if everything is ok, try to upload file
     } else {
       $sql = "INSERT INTO 'Buch' (isbn10, isbn13, titel, autor, verzeichnispfad)

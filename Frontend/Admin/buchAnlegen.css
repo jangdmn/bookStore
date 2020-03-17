@@ -80,3 +80,13 @@ body {
   margin: 1rem 23rem 0 23rem;
   justify-content: center;
 }
+
+.fileWarn {
+  width: 30%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-evenly;
+  margin-top: 1rem;
+  border: 1px solid red;
+  color: red;
+}
