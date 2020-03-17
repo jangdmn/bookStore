@@ -19,7 +19,7 @@
     <div class="topnav">
         <a class="active" href="adminHome.php"><i class="fa fa-fw fa-home"></i>&nbsp Home</a>
         <a href="../store/adminBookStore.php"><i class="fa fa-fw fa-book""></i>&nbsp Book Store</a>
-        <a href=" ../admin/buchAnlegen.php"> <i class="fa fa-fw fa-arrow-circle-up"></i>&nbsp Buch Anlegen</a>
+        <a href=" ../admin/buchAnlegen.php"><i class="fa fa-fw fa-arrow-circle-up"></i>&nbsp Buch Anlegen</a>
         <a href="../logout/logout.php"><i class="fa fa-sign-out" style="font-size:1.4rem"></i></a>
     </div>
     <div class="rahmen">

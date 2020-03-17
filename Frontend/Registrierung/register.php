@@ -1,3 +1,6 @@
+<div class="topnav">
+    <a class="active" href="../login/login.html"><i class="fa fa-fw fa-arrow-circle-left"></i>&nbsp zurück</a>
+</div>
 <?php
 session_start();
 $pdo = new PDO('mysql:host=localhost;dbname=grogogroup', 'root', '');
@@ -6,13 +9,17 @@ $pdo = new PDO('mysql:host=localhost;dbname=grogogroup', 'root', '');
 <html>
 
 <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="register.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet" />
     <title>Registrierung</title>
 </head>
 
 <body>
 
     <?php
-    $showFormular = true; //Variable ob das Registrierungsformular anezeigt werden soll
+    $showFormular = true; // Variable ob das Registrierungsformular anezeigt werden soll
 
     if (isset($_GET['register'])) {
         $error = false;
@@ -29,23 +36,33 @@ $pdo = new PDO('mysql:host=localhost;dbname=grogogroup', 'root', '');
             $error = true;
         }
         if ($passwort != $passwort2) {
-            echo 'Die Passwörter müssen übereinstimmen<br>';
+            echo 
+            '<div class="warning">
+                <div><i class="fa fa-fw fa-exclamation-triangle"></i></div>
+                <div><h3>Die Passwörter müssen übereinstimmen</h3></div>
+                <div><i class="fa fa-fw fa-exclamation-triangle"></i></div>
+             </div>';
             $error = true;
         }
 
-        //Überprüfe, dass die E-Mail-Adresse noch nicht registriert wurde
+        // Überprüfe, dass die E-Mail-Adresse noch nicht registriert wurde
         if (!$error) {
             $statement = $pdo->prepare("SELECT * FROM kunde WHERE email = :email");
             $result = $statement->execute(array('email' => $email));
             $user = $statement->fetch();
 
             if ($user !== false) {
-                echo 'Diese E-Mail-Adresse ist bereits vergeben<br>';
+                echo 
+                '<div class="warning">
+                    <div><i class="fa fa-fw fa-exclamation-triangle"></i></div>
+                    <div><h3>Diese E-Mail-Adresse ist bereits vergeben</h3></div>
+                    <div><i class="fa fa-fw fa-exclamation-triangle"></i></div>
+                 </div>';
                 $error = true;
             }
         }
 
-        //Keine Fehler, wir können den Nutzer registrieren
+        // Keine Fehler, wir können den Nutzer registrieren
         if (!$error) {
             $passwort_hash = password_hash($passwort, PASSWORD_DEFAULT);
 
@@ -53,29 +70,39 @@ $pdo = new PDO('mysql:host=localhost;dbname=grogogroup', 'root', '');
             $result = $statement->execute(array('email' => $email, 'passwort' => $passwort_hash));
 
             if ($result) {
-                echo 'Du wurdest erfolgreich registriert. <a href="login.php">Zum Login</a>';
+                header("refresh:0;url=success.php");
                 $showFormular = false;
             } else {
-                echo 'Beim Abspeichern ist leider ein Fehler aufgetreten<br>';
+                echo 
+                '<div class="warning">
+                    <div><i class="fa fa-fw fa-exclamation-triangle"></i></div>
+                    <div><h3>Beim Abspeichern ist leider ein Fehler aufgetreten</h3></div>
+                    <div><i class="fa fa-fw fa-exclamation-triangle"></i></div>
+                 </div>';
             }
         }
     }
 
     if ($showFormular) {
     ?>
+        <div class="flex-container">
+            <div class="registerWin">
+                <form action="?register=1" method="post">
+                    <div class="registerFont">E-Mail:</div>
+                    <input type="email" size="40" maxlength="250" name="email"><br><br>
 
-        <form action="?register=1" method="post">
-            E-Mail:<br>
-            <input type="email" size="40" maxlength="250" name="email"><br><br>
+                    <div class="registerFont">Dein Passwort:</div>
+                    <input type="password" size="40" maxlength="250" name="passwort"><br>
 
-            Dein Passwort:<br>
-            <input type="password" size="40" maxlength="250" name="passwort"><br>
+                    <div class="registerFont">Passwort wiederholen:</div>
+                    <input type="password" size="40" maxlength="250" name="passwort2"><br><br>
 
-            Passwort wiederholen:<br>
-            <input type="password" size="40" maxlength="250" name="passwort2"><br><br>
-
-            <input type="submit" value="Abschicken">
-        </form>
+                    <div class="registerBtn">
+                        <button type="submit" name="register" class="register">Registrieren</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
     <?php
     } //Ende von if($showFormular)
