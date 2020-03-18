@@ -100,11 +100,11 @@
 
       // Prüft ob Datei schon vorhanden ist
       if (file_exists("uploads/$titelDirectory")) {
-        echo "<div class=\"fileWarn\">
+        die ("<div class=\"fileWarn\">
               <i class=\"fa fa-fw fa-exclamation-triangle\"></i>
               <div>Datei existiert bereits.</div>
               <i class=\"fa fa-fw fa-exclamation-triangle\"></i>
-            </div>";
+            </div>");
       } else { // Ordner mit dem Namen des eingegebenen Buchtitels wird erstellt
       mkdir("uploads/$titelDirectory");}
 
