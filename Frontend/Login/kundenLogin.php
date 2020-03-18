@@ -1,6 +1,6 @@
 <div class="topnav">
-  <a class="active" href="login.html"><i class="fas fa-sign-in-alt"></i>&nbsp Login</a>
-  <a href="../Registrierung/register.php"><i class="fa fa-user-plus"></i>&nbsp Registrierung</a>
+    <a href="../login/login.html"><i class="fa fa-fw fa-arrow-circle-left"></i>&nbsp; zurück</a>
+    <div class="titel">book store&nbsp;&nbsp;<i class="fas fa-book"></i></div>
 </div>
 <?php
 header("Content-type: text/html");
@@ -15,7 +15,7 @@ if (isset($_GET['login'])) {
   $result = $statement->execute(array('email' => $email));
   $user = $statement->fetch();
 
-  //Überprüfung des Passworts
+  // Überprüfung des Passworts
   if ($user !== false && password_verify($passwort, $user['passwort'])) {
     $_SESSION['userid'] = $user['benutzerID'];
     $_SESSION['name'] = $user['vorname'];
@@ -36,8 +36,10 @@ if (isset($_GET['login'])) {
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="login.css" />
+  <link rel="stylesheet" href="../Navbar/navbar.css" />
   <link href="../font-awesome/css/all.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Unica+One&display=swap" rel="stylesheet">
   <title>Login</title>
 </head>
 
