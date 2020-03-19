@@ -38,7 +38,7 @@
     while ($row = $stmt->fetch()) {
       // Ausgabe von Book-Covers (Seite 1) --> \" zeigt normales Anführungszeichen an 
       $titel = $row['titel'];
-      echo "<a href=\"bookDetail.html?titel=" . $titel . " \"><img \" src=\"../Admin/uploads/" . $titel . "/1.jpg\"></a>";
+      echo "<a href=\"bookDetail.php?titel=" . $titel . " \"><img \" src=\"../Admin/uploads/" . $titel . "/1.jpg\"></a>";
     }
     ?>
 <!--     <a href="bookDetail.php"><img src="https://nyti.ms/2vVxRDK"></a> -->
