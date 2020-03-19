@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css?family=Unica+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet" />
 </head>
-<title>Admin</title>
+<title>Buch anlegen</title>
 
 <body>
   <?php

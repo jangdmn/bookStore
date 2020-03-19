@@ -41,7 +41,6 @@
       echo "<a href=\"bookDetail.php?titel=" . $titel . " \"><img \" src=\"../Admin/uploads/" . $titel . "/1.jpg\"></a>";
     }
     ?>
-    <a href="bookDetail.php"><img src="https://nyti.ms/2vVxRDK"></a>
   </div>
 </body>
 
